@@ -1,0 +1,18 @@
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - file.folder
+      - file.ext
+      - file.ctime
+      - file.mtime
+  - type: cards
+    name: Gallary
+    order:
+      - file.name
+      - file.folder
+      - file.tags
+      - file.ctime
+    cardSize: 350
+    imageAspectRatio: 1.05
