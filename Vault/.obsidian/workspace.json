@@ -42,12 +42,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study Notes & Plan/Study Table.md",
+                "file": "Untitled.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Study Table"
+              "title": "Untitled"
             }
           },
           {
@@ -150,8 +150,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f0dd3935f5b237be",
@@ -259,13 +258,16 @@
   },
   "active": "f4cb0dfb3c39b5fe",
   "lastOpenFiles": [
-    "Study Notes & Plan/PRACTICE_QUIZ.md",
-    "Study Notes & Plan/Study Table.md",
-    "Study Notes & Plan/MIDTERM_1_MASTERY_GUIDE.md",
-    "Study Notes & Plan/DAY_BEFORE_REVIEW.md",
-    "Study Notes & Plan/FORMULA_SHEET.md",
+    "Study Notes & Plan/STOR155/Exam I/DAY_BEFORE_REVIEW.md",
+    "Untitled.md",
+    "Study Notes & Plan/STOR155/Exam I/FORMULA_SHEET.md",
+    "Study Notes & Plan/STOR155/Exam I",
+    "Study Notes & Plan/STOR155/Exam I/MIDTERM_1_MASTERY_GUIDE.md",
+    "Study Notes & Plan/STOR155",
+    "Study Notes & Plan/STOR155/Exam I/Study Table.md",
+    "Study Notes & Plan/STOR155/Exam I/PRACTICE_QUIZ.md",
     "Core Base.base",
     "Study Notes & Plan",
-    "Study Notes & Plan/STUDY_PLAN.md"
+    "Study Notes & Plan/STOR155/Exam I/STUDY_PLAN.md"
   ]
 }
