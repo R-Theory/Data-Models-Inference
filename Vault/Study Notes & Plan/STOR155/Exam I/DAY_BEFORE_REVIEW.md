@@ -67,14 +67,44 @@ x < Q1 - 1.5×IQR  OR  x > Q3 + 1.5×IQR
   - ⚠️ Sensitive to outliers
   - ⚠️ Measures ONLY linear relationships
 
-### PROBABILITY BASICS
-```
-P(Aᶜ) = 1 - P(A)
+### LINEAR REGRESSION (TOPIC 7 - HEAVILY TESTED!)
 
-P(A or B) = P(A) + P(B) - P(A and B)
-
-If mutually exclusive: P(A or B) = P(A) + P(B)
+**Equation of Line:**
 ```
+ŷ = b₀ + b₁x
+```
+
+**Computing the Line:**
+```
+Slope:     b₁ = r × (sᵧ/sₓ)
+Intercept: b₀ = ȳ - b₁x̄
+```
+
+**Interpreting:**
+- **Slope (b₁)**: "For each 1-unit increase in X, Y changes by b₁"
+- **Intercept (b₀)**: "When X = 0, predicted Y is b₀" (may not be meaningful!)
+
+**Residuals:**
+```
+Residual = Observed - Predicted = y - ŷ
+
+Positive residual → Model UNDERESTIMATED
+Negative residual → Model OVERESTIMATED
+```
+
+**R-squared (r²):**
+- r² = (correlation)²
+- Interpretation: "r²% of variation in Y is explained by X"
+- Example: r = 0.8 → r² = 0.64 = 64% explained
+
+**Interpolation vs Extrapolation:**
+- **Interpolation**: x within data range → TRUSTWORTHY
+- **Extrapolation**: x outside data range → UNTRUSTWORTHY (can give absurd results!)
+
+**Residual Plots:**
+- Ideal: Random scatter around 0, no pattern
+- Curved pattern → Nonlinear relationship, line inappropriate
+- Fan shape → Non-constant variance (heteroskedasticity)
 
 ---
 
@@ -103,10 +133,12 @@ If mutually exclusive: P(A or B) = P(A) + P(B)
 4. Can observational studies prove causation? ⟹ NO!
 5. What does r = -0.9 mean? ⟹ Strong negative linear relationship
 6. What happens to SD if you add 10 to all values? ⟹ No change
-7. What's the complement rule? ⟹ P(Aᶜ) = 1 - P(A)
-8. Stratified vs cluster sampling? ⟹ Stratified: sample from ALL groups; Cluster: sample SOME groups
-9. What are the 4 experimental design principles? ⟹ Control, Randomize, Replicate, Block
-10. When is correlation exactly 1? ⟹ All points on line with positive slope
+7. Stratified vs cluster sampling? ⟹ Stratified: sample from ALL groups; Cluster: sample SOME groups
+8. What are the 4 experimental design principles? ⟹ Control, Randomize, Replicate, Block
+9. Formula for regression slope? ⟹ b₁ = r × (sᵧ/sₓ)
+10. What is r² = 0.64? ⟹ 64% of variation in Y is explained by X
+11. Interpolation vs extrapolation? ⟹ Interpolation (within range) is trustworthy; extrapolation is not
+12. Positive residual means? ⟹ Model UNDERESTIMATED (observed > predicted)
 
 **If you got all 10 right without checking: YOU'RE READY! 💪**
 **If you missed any: Review that topic now!**

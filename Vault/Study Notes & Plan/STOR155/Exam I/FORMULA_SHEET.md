@@ -68,6 +68,57 @@ Strength:
 |r| close to 0: weak
 ```
 
+## LINEAR REGRESSION
+
+### Regression Line Equation
+```
+ŷ = b₀ + b₁x
+
+Where:
+- ŷ = predicted value of y
+- b₀ = y-intercept
+- b₁ = slope
+```
+
+### Computing the Regression Line
+```
+Slope:     b₁ = r × (sᵧ / sₓ)
+
+Intercept: b₀ = ȳ - b₁x̄
+```
+
+### Residual
+```
+Residual = Observed - Predicted = yᵢ - ŷᵢ
+
+Positive residual → Model UNDERESTIMATED
+Negative residual → Model OVERESTIMATED
+```
+
+### Coefficient of Determination (r²)
+```
+r² = (correlation coefficient)²
+
+Interpretation: % of variation in Y explained by the line
+```
+
+### Interpreting Slope and Intercept
+```
+Slope (b₁): "For each 1-unit increase in X,
+            Y changes by b₁ units"
+
+Intercept (b₀): "When X = 0, we predict Y = b₀"
+                ⚠️ May not be meaningful!
+```
+
+### Interpolation vs Extrapolation
+```
+Interpolation: x within data range → TRUSTWORTHY ✓
+Extrapolation: x outside data range → UNTRUSTWORTHY ✗
+```
+
+---
+
 ## PROBABILITY
 
 ### Basic Rules

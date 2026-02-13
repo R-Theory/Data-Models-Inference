@@ -671,7 +671,200 @@ y = x² has perfect relationship, but r ≈ 0!
 
 ---
 
-## 7. BASIC PROBABILITY
+## 7. LINEAR REGRESSION
+
+### 🎯 What is Regression?
+
+**Regression line**: Describes how a response variable Y changes with respect to an explanatory variable X
+
+**Key Difference from Correlation:**
+- Correlation: Order of x and y doesn't matter (r(x,y) = r(y,x))
+- Regression: **ORDER MATTERS!** Which variable is X (explanatory) and Y (response) changes the line
+
+### 🎯 The Least-Squares Regression Line
+
+**Equation of a Line:**
+```
+ŷ = b₀ + b₁x
+
+Where:
+- ŷ (y-hat) = PREDICTED value of y
+- b₀ = y-intercept (value of y when x = 0)
+- b₁ = slope (change in y for each 1-unit increase in x)
+```
+
+**Computing the Line:**
+```
+b₁ = r × (sᵧ / sₓ)
+
+b₀ = ȳ - b₁x̄
+```
+
+**Where:**
+- r = correlation coefficient
+- sₓ, sᵧ = sample standard deviations of x and y
+- x̄, ȳ = sample means of x and y
+
+**Example Calculation:**
+Given: x̄ = 7, ȳ = 5, sₓ = 4, sᵧ = 2, r = 0.85
+
+```
+b₁ = 0.85 × (2/4) = 0.85 × 0.5 = 0.425
+b₀ = 5 - 0.425(7) = 5 - 2.975 = 2.025
+
+Regression Line: ŷ = 2.025 + 0.425x
+```
+
+### 🎯 Interpreting Slope and Intercept
+
+**Slope Interpretation:**
+- "For each increase of 1 [unit of x], we predict [y] to change by b₁ [units of y]"
+- Example: If ŷ = 122.9 - 11.1x (golf putts vs distance)
+  - "For each 1-meter increase in distance, we predict the golfer makes 11.1 fewer putts"
+
+**Y-Intercept Interpretation:**
+- "When x = 0, we predict y = b₀"
+- ⚠️ Often doesn't make practical sense! (e.g., "at 0 meters from hole, golfer makes 122.9 putts")
+- May be an extrapolation error
+
+### 🎯 Residuals
+
+**Definition:**
+```
+Residual = Observed - Predicted = yᵢ - ŷᵢ
+```
+
+**Interpretation:**
+- **Positive residual**: Model UNDERESTIMATES y (actual > predicted)
+- **Negative residual**: Model OVERESTIMATES y (actual < predicted)
+- **Residual = 0**: Perfect prediction
+
+**Example:**
+- Observed: y = 34 points
+- Predicted: ŷ = 33.67 points
+- Residual = 34 - 33.67 = 0.33 → Model underestimated by 0.33 points
+
+### 🎯 r² (Coefficient of Determination)
+
+**What r² tells you:**
+```
+r² = percentage of variation in Y explained by the regression line
+```
+
+**Calculation:**
+- Just square the correlation coefficient!
+- r = 0.8056 → r² = 0.649 → **64.9% of variation explained**
+
+**Interpretation Scale:**
+| r | r² | Strength |
+|---|-----|----------|
+| ±0.3 | 0.09 | Weak (9% explained) |
+| ±0.5 | 0.25 | Moderate (25% explained) |
+| ±0.7 | 0.49 | Moderately Strong (49% explained) |
+| ±0.9 | 0.81 | Strong (81% explained) |
+
+**Rule of Thumb:**
+- Use **r²** to describe STRENGTH of linear relationship
+- Use **r** to describe DIRECTION (positive vs negative)
+
+### 🎯 Extrapolation vs Interpolation
+
+**Interpolation**: Predicting y for x-values WITHIN the range of your data
+- ✅ **TRUSTWORTHY**
+
+**Extrapolation**: Predicting y for x-values OUTSIDE the range of your data
+- ❌ **UNTRUSTWORTHY** - can give absurd results!
+
+**Example:**
+- Data: x ranges from 3 to 7 meters
+- Predicting at x = 4.5? → **Interpolation** (within range) ✅
+- Predicting at x = 0? → **Extrapolation** (outside range) ❌
+- Predicting at x = 15? → **Extrapolation** (outside range) ❌
+
+**Classic Extrapolation Error:**
+- Beer/BAC study: x (beers) from 1-9
+- Line: ŷ = -0.0127 + 0.018x
+- At x = 0: ŷ = -0.0127 → **Negative BAC is impossible!**
+
+### 🎯 Residual Plots
+
+**Why use residual plots?**
+- Check if linear model is appropriate
+- Identify patterns that suggest problems
+
+**Ideal Residual Plot:**
+- Points scattered **randomly** around horizontal line at 0
+- **No pattern**
+- Constant spread (same vertical scatter throughout)
+
+**Problem Patterns:**
+
+1. **Curved/U-shaped pattern:**
+   - Indicates **nonlinear relationship**
+   - Linear regression is NOT appropriate
+
+2. **Fan/funnel shape:**
+   - Spread increases or decreases across x
+   - Called **heteroskedasticity**
+   - Violates constant variance assumption
+
+3. **Pattern visible:**
+   - Any systematic pattern = problem
+   - Model is missing something
+
+### 🎯 Outliers and Influential Points
+
+**Outliers can dramatically affect regression!**
+
+**Types of influential points:**
+1. **High leverage point**: Extreme x-value (far from x̄)
+2. **Influential point**: Removing it substantially changes the regression line
+
+**Effect:** A single outlier can:
+- Change slope from positive to negative
+- Dramatically increase or decrease r
+
+### 🎯 Regression Practice Problem (from exam)
+
+**Given:** Steelers data
+- x̄ = 324.35 yards, sₓ = 77.23 yards
+- ȳ = 24.8 points, sᵧ = 8.53 points
+- r = 0.8056
+
+**Find the regression line:**
+```
+b₁ = r × (sᵧ/sₓ) = 0.8056 × (8.53/77.23) = 0.8056 × 0.1104 = 0.08898
+
+b₀ = ȳ - b₁x̄ = 24.8 - 0.08898(324.35) = 24.8 - 28.86 = -4.06
+
+Line: ŷ = -4.06 + 0.08898x
+```
+
+**Check prediction for (424, 34):**
+```
+ŷ = -4.06 + 0.08898(424) = -4.06 + 37.73 = 33.67
+
+Residual = 34 - 33.67 = 0.33 (positive → underestimate)
+```
+
+**What % of variation is explained?**
+```
+r² = (0.8056)² = 0.649 = 64.9%
+```
+
+### 🎯 Key Regression Formulas to Memorize
+
+```
+Slope:           b₁ = r × (sᵧ/sₓ)
+Intercept:       b₀ = ȳ - b₁x̄
+Regression line: ŷ = b₀ + b₁x
+Residual:        e = y - ŷ
+R-squared:       r² = (correlation)²
+```
+
+---
+
+## 8. BASIC PROBABILITY
 
 ### 🎯 Fundamental Concepts
 
